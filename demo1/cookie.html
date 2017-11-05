@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>cookie小demo</title>
+</head>
+<head>
+<script>
+function setCookie(cname,cvalue,exdays){  //创建cookie
+	var d = new Date();
+	d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	var expires = "expires="+d.toGMTString();
+	document.cookie = cname+"="+cvalue+"; "+expires;
+}
+function trim(str){ //删除左右两端的空格
+　  return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+function getCookie(cname){ //读取cookie
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = trim(ca[i]);
+		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	}
+	return "";
+}
+function checkCookie(){ //检查是否存在cookie
+	var user=getCookie("username");
+	if (user!=""){
+		alert("Welcome again " + user);
+	}
+	else {
+		user = prompt("Please enter your name:","");
+  		if (user!="" && user!=null){
+    		setCookie("username",user,30);
+    	}
+	}
+}
+function changeCookie(){ //改变cookie
+		var user = prompt("Please enter your name:","");
+  		if (user!="" && user!=null){
+    		setCookie("username",user,30);
+	        }
+}
+function cleanCookie(){  //清除cookie
+	var user = getCookie("username");
+	
+	if (user!=""){
+		var d = new Date();
+	    document.cookie = "username"+"="+""+"; ";
+	}
+}
+function showCookie(){
+	var user = getCookie("username");
+	if(user=="") alert(null);
+	else alert(user);
+}
+</script>
+</head>
+	
+<body onload="checkCookie()">
+        <input type="button" onclick="changeCookie()" value="设置cookie"/>
+	<input type="button" onclick="cleanCookie()" value="清除cookie"/>
+	<input type="button" onclick="showCookie()" value="显示cookie"/>
+</body>
+	
+</html>
