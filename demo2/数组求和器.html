@@ -1,0 +1,47 @@
+﻿
+<!DOCTYPE html>
+<head>
+<meta charset=utf-8" />
+<title>数组求和器</title>
+<style>
+#outer{width:500px;margin:0 auto;}
+#outer input{padding:3px;border:1px solid #ccc;font-family:inherit;width:220px;margin-right:10px;}
+.sum{font-size:30px;color:red;}
+</style>
+<script>
+window.onload = function ()
+{
+	var oBtn = document.getElementsByTagName("button")[0];
+	var oInput = document.getElementsByTagName("input")[0]
+	var oStrong = document.getElementsByTagName("strong")[0];
+	oInput.onkeyup = function ()
+	{
+		if(this.value.indexOf(/^[^(\d)]/)||/[^(\d)|(,)]/){
+			alert("请输入有效字符");
+		}
+		this.value = this.value.replace(/^[^(\d)]/,"");             //数组第一个必须为数字
+		this.value = this.value.replace(/[^(\d)|(,)]/,"");          //删除非法字符
+		console.log(this.value);
+	}	
+	oBtn.onclick = function ()
+	{
+		var sum = 0;
+		var oInput = document.getElementsByTagName("input")[0].value.split(",");
+		for (var i in oInput)
+		{
+			sum += parseInt(oInput[i])
+		}
+		oStrong.innerHTML = sum
+	}
+}
+</script>
+</head>
+<body>
+<div id="outer">
+    <label><input type="text" autofocus="autofocus" placeholder="输入一系列数字，数字之间用','隔离" /></label><br /><br />
+    <strong class="sum">结果</strong>
+    <p><button>求和</button></p>
+    
+</div>
+</body>
+</html>
