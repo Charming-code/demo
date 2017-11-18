@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>jquery实现Tab切换</title>
+	<style type="text/css">
+    .btn span { 
+    	width:35px; 
+    	text-align:center; 
+    	color:#fff; 
+    	background:#f00; 
+    	cursor:pointer; 
+    	margin:0 5px; 
+    	display:inline-block;
+    	}
+    .con { 
+    	border:#033 1px solid;
+    	height:100px;
+    	width:225px;
+    	text-align: center;
+    	line-height: 100PX; }
+    .hid{
+    	display:none; 
+    }
+	</style>
+</head>
+<body>
+	
+	<div class="btn clear"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+	<div class="main">
+    <div class="con">ONE<br /> </div>
+    <div class="con hid">TWO<br /> </div>
+    <div class="con hid">THREE<br /> </div>
+    <div class="con hid">FOUR<br /> </div>
+    <div class="con hid">FIVE<br /> </div>
+    </div>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    	
+        $(".btn span").click(function(){
+        var num =$(".btn span").index(this);
+        $(".con").hide();
+        $(".con").eq(num).show().slblings().hide();
+        })
+    </script>
+</body>
+</html>
