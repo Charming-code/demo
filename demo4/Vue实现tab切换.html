@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue实现tab切换</title>
+	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+	<style>
+		li{float:left; margin:0 10px}
+		li:active{color: red}
+	</style>
+</head>
+<body>
+<div id="app">
+	<div>Vue简略实现tab切换</div>
+        <ul>
+            <li
+            v-for="(item,index) in tabs" 
+            :class="{active:index == num}"
+             @click="tab(index)">{{item}}</li>
+        </ul><br/><br/>
+        <div class="tabCon" style="margin-left:30px">
+            <div 
+            v-for='(itemCon,index) in tabContents' 
+            v-show=" index == num">{{itemCon}}</div>
+        </div>
+    </div>
+</body>
+<!--这里是js代码-->
+<script type="text/javascript">
+var vm = new Vue({
+    el: '#app',
+    data: {
+        tabs: ["国内新闻", "国际新闻","军事"],
+        tabContents: ["国内新闻：11月24日，在江西鄱阳湖都昌候鸟自然保护区拍摄的大批冬候鸟。连日来，中国最大的淡水湖鄱阳湖迎来越冬候鸟迁徙高峰。受前期鄱阳湖高水位影响，今年鄱阳湖越冬候鸟的迁徙高峰期比往年推迟了约半个月。据鄱阳湖国家级自然保护区管理局监测显示，目前飞抵保护区的候鸟总数超过十万只，主要包括大雁、小天鹅、鸿雁、白鹤、灰鹤、东方白鹳等。鄱阳湖是国际重要湿地、亚洲最大的越冬候鸟栖息地。每年占世界总数95%以上的白鹤、50%的白枕鹤、60%的鸿雁都在鄱阳湖区越冬，被誉为“候鸟天堂”。", "国际新闻：每年11月的第4个星期四是美国传统节日感恩节。每年感恩节，美国约有4600万只火鸡“牺牲”，成为人们餐桌上的美食。而按照习俗，美国总统每年都会在感恩节前一天在白宫赦免火鸡，使其免于成为“盘中物”。","军事：韩国《中央日报》24日刊发多篇报道，引述匿名韩国政府高官的话称，中国提议就“萨德”问题早日进行中韩军事磋商，还对“萨德”提出三个要求，包括对“萨德”雷达设立隔离墙，以防止探测中国腹地。韩国政府24日否认上述说法。中国军事专家杨承军24日评价，韩媒所谓中国的三大要求“幼稚可笑”，根本没有可操作性"],
+        num: 0
+    },
+    methods: {
+        tab(index) {
+            this.num = index;
+        }
+    }
+});
+</script>

@@ -11,3 +11,6 @@
 
 ## demo3
 用jQuery实现tab切换
+
+## demo4
+用Vue实现tab切换
