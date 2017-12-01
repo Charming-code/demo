@@ -14,3 +14,6 @@
 
 ## demo4
 用Vue实现tab切换
+
+## demo5
+用原生JavaScript实现图片自动滚动和tab切换
