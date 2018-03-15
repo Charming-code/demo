@@ -17,3 +17,6 @@
 
 ## demo5
 用原生JavaScript实现图片自动滚动和tab切换
+
+## demo6
+用原生JavaScript实现登陆注册验证码的生成与核对
