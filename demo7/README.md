@@ -1,0 +1,2 @@
+# demo7
+用原生JavaScript与canvas实现验证码的随机生成
